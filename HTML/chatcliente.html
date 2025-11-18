@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylechatcli.css}">
+    <title>Chat Cliente</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <h4>JobXpress</h4>
+    </div>
+    <nav class="nav-links">
+      <a th:href="@{/cliente/home}">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a th:href="@{/cliente/perfil}">Tu perfil</a>
+      <a th:href="@{/cliente/chat}">Chat</a>
+      <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+      <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Cerrar sesión
+      </a>
+      <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+    </nav>
+  </header>
+
+  <div class="linea"></div>
+
+  <main class="chat-container">
+    <aside class="chat-list">
+      <div class="chat-preview">
+        <strong>prestador</strong>
+        <p>Hola, ¿en qué puedo ayudarte?</p>
+      </div>
+      <div class="chat-preview">
+        <strong>plomero123</strong>
+        <p>Tengo disponibilidad mañana.</p>
+      </div>
+      <div class="chat-preview">
+        <strong>electricistaPro</strong>
+        <p>Puedo ayudarte con tu instalación.</p>
+      </div>
+      <div class="chat-preview">
+        <strong>limpiezahogar</strong>
+        <p>Disponible hoy en la tarde.</p>
+      </div>
+      <div class="chat-preview">
+        <strong>jardineroXP</strong>
+        <p>Tu jardín quedará hermoso.</p>
+      </div>
+    </aside>
+
+    <section class="chat-conversacion">
+      <div class="mensaje mensaje-remoto">Hola, ¿puedes ayudarme con el servicio?</div>
+      <div class="mensaje mensaje-local">Hola, sí. ¿Cuál es tu problema?</div>
+      <div class="mensaje mensaje-remoto">Tengo una fuga en la cocina.</div>
+      <div class="mensaje mensaje-local">Entiendo. ¿Te parece bien mañana en la mañana?</div>
+
+      <div class="mensaje-input">
+        <input type="text" id="mensajeInput" placeholder="Escribe un mensaje...">
+        <button id="btnEnviar">Enviar</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("btnEnviar").addEventListener("click", function() {
+      let input = document.getElementById("mensajeInput");
+      if (input.value.trim() !== "") {
+        let chat = document.querySelector(".chat-conversacion");
+        let div = document.createElement("div");
+        div.classList.add("mensaje", "mensaje-local");
+        div.textContent = input.value;
+        chat.insertBefore(div, document.querySelector(".mensaje-input"));
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

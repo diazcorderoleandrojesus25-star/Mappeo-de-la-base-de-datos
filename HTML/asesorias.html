@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylesplomeria.css}">
+    <title>Tutorías y asesorías</title>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+    <nav class="nav-links">
+        <a th:href="@{/cliente}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/cliente/perfil}">Tu perfil</a>
+        <a th:href="@{/cliente/chat}">Chat</a>
+        <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+        <!-- Cerrar sesión -->
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="post" style="display:none;">
+            <!-- Si no usas seguridad, puedes eliminar esto -->
+        </form>
+    </nav>
+</header>
+
+<main class="contenedor">
+    <h1>Tutorías y asesorías</h1>
+    <p>Apoyo personalizado en tareas, exámenes y refuerzos escolares para todos los que necesiten.</p>
+
+    <div class="tarjetas-usuarios">
+        <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+            <img th:src="@{'/images/prestador' + ${i} + '.jpg'}" th:alt="'Prestador ' + ${i}">
+            <div class="info">
+                <h3 th:text="'Prestador ' + ${i}"></h3>
+
+                <p th:switch="${i}">
+                    <span th:case="1">Ayudo con tareas escolares y refuerzo en diferentes materias. Trabajo con niños y jóvenes para que comprendan mejor sus clases.</span>
+                    <span th:case="2">Ofrezco asesorías en matemáticas para primaria, secundaria y bachillerato con paciencia y ejemplos prácticos.</span>
+                    <span th:case="3">Apoyo en preparación de exámenes, organizando temas y resolviendo dudas con ejercicios prácticos.</span>
+                    <span th:case="4">Brindo asesoría en inglés: vocabulario, gramática, lectura y conversación, adaptado a tu nivel.</span>
+                    <span th:case="5">Tutorías virtuales y presenciales en todas las materias de primaria con técnicas didácticas divertidas.</span>
+                    <span th:case="6">Asesoro estudiantes universitarios en redacción, trabajos escritos y normas APA.</span>
+                    <span th:case="7">Clases de refuerzo en ciencias naturales y biología con ejemplos simples, gráficos y ejercicios.</span>
+                    <span th:case="8">Acompaño procesos de alfabetización y lectura para niños o adultos con calma y dedicación.</span>
+                    <span th:case="9">Asesorías en historia, sociales y geografía con repasos y mapas mentales.</span>
+                </p>
+
+                <a href="#" class="btn">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

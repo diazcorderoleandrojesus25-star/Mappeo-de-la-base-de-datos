@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing digital</title>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h4>JobXpress</h4>
+        </div>
+
+        <nav class="nav-links">
+            <a th:href="@{/cliente/home}">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a th:href="@{/cliente/perfil}">Tu perfil</a>
+            <a th:href="@{/cliente/chat}">Chat</a>
+            <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+
+            <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;">
+            </form>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1>Marketing digital</h1>
+        <p>Servicios enfocados en mejorar la imagen, presencia digital y ventas de tu negocio a través de estrategias publicitarias y contenido creativo.</p>
+
+        <div class="tarjetas-usuarios">
+
+            <!-- FOR -->
+            <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+
+                <!-- Imagen -->
+                <img th:src="@{'/images/prestador' + ${i} + '.jpg'}" th:alt="'Prestador ' + ${i}">
+
+                <div class="info">

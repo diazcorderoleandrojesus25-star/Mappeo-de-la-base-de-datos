@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <title>JobXpress - Inicio</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img th:src="@{/images/logo.png}" alt="JobXpress Logo">
+    </div>
+    <nav class="nav-links">
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Registro</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Conecta con los mejores prestadores de servicios</h1>
+    <p>
+        JobXpress te ayuda a encontrar y contratar expertos en plomería, electricidad,
+        limpieza, fisioterapia y mucho más.
+    </p>
+    <a th:href="@{/register}" class="btn-primary">Comienza ahora</a>
+</section>
+
+<!-- Servicios destacados -->
+<section class="services-section">
+    <h2>Servicios más buscados</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Plomería</h3>
+            <p>Soluciones rápidas para fugas, instalaciones y reparaciones.</p>
+        </div>
+        <div class="service-card">
+            <h3>Electricidad</h3>
+            <p>Instalaciones eléctricas seguras y mantenimiento confiable.</p>
+        </div>
+        <div class="service-card">
+            <h3>Limpieza</h3>
+            <p>Hogares y oficinas impecables con profesionales confiables.</p>
+        </div>
+        <div class="service-card">
+            <h3>Fisioterapia</h3>
+            <p>Atención personalizada para tu bienestar físico y recuperación.</p>
+        </div>
+        <div class="service-card">
+            <h3>Carpintería</h3>
+            <p>Fabricación y reparación de muebles a medida para tu hogar u oficina.</p>
+        </div>
+        <div class="service-card">
+            <h3>Marketing Digital</h3>
+            <p>Haz crecer tu negocio con expertos en redes sociales y publicidad online.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Cómo funciona -->
+<section class="how-it-works">
+    <h2>¿Cómo funciona JobXpress?</h2>
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Regístrate</h3>
+            <p>Crea tu cuenta como cliente o prestador de servicios.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Busca o publica</h3>
+            <p>Encuentra el servicio que necesitas o publica el que ofreces.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Conecta y califica</h3>
+            <p>Agenda, paga y califica el servicio fácilmente desde la app.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; <span th:text="${T(java.time.Year).now()}"></span> JobXpress - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

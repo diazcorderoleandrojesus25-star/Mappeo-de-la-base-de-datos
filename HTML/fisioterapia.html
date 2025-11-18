@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylesplomeria.css}">
+    <title>Fisioterapia</title>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+    <nav class="nav-links">
+        <a th:href="@{/cliente/home}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/cliente/perfil}">Tu perfil</a>
+        <a th:href="@{/cliente/chat}">Chat</a>
+        <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+    </nav>
+</header>
+
+<main class="contenedor">
+    <h1>Fisioterapia</h1>
+    <p>Acompañamos procesos de rehabilitación desde la comodidad de tu hogar.</p>
+
+    <div class="tarjetas-usuarios">
+        <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+            <img th:src="@{'/images/prestador' + ${i} + '.jpg'}" th:alt="'Prestador ' + ${i}">
+            <div class="info">
+                <h3>Prestador <span th:text="${i}"></span></h3>
+
+                <p th:switch="${i}">
+                    <span th:case="1">Ofrezco sesiones de fisioterapia a domicilio para tratar dolores musculares y articulares. Trabajo con técnicas manuales, estiramientos y ejercicios personalizados.</span>
+                    <span th:case="2">Ayudo a personas con lesiones o cirugías recientes a recuperar movimiento. Diseño planes de rehabilitación adaptados con acompañamiento constante.</span>
+                    <span th:case="3">Realizo terapias de relajación muscular y manejo del estrés físico. Masajes terapéuticos y técnicas de respiración.</span>
+                    <span th:case="4">Trabajo con deportistas en procesos de recuperación, fortalecimiento y prevención de lesiones.</span>
+                    <span th:case="5">Atiendo adultos mayores con terapias físicas suaves para mantener independencia.</span>
+                    <span th:case="6">Brindo fisioterapia neurológica para ACV, parálisis o Parkinson con ejercicios específicos.</span>
+                    <span th:case="7">Sesiones de fisioterapia respiratoria para mejorar la capacidad pulmonar.</span>
+                    <span th:case="8">Tratamientos para corregir malas posturas y aliviar dolores por sobrecarga.</span>
+                    <span th:case="9">Acompaño procesos de rehabilitación física adaptados a lesiones, cirugías o dolor crónico.</span>
+                </p>
+
+                <a th:href="@{/fisioterapia}" class="btn"><button>Ver perfil</button></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

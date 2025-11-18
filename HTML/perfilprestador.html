@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Perfil | JobXpress</title>
+
+    <!-- En Spring Boot, si luego usas CSS será desde /static/css -->
+    <!-- <link rel="stylesheet" th:href="@{/css/stylesperfilprestador.css}"> -->
+
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">JobXpress</div>
+    <nav class="nav-links">
+
+      <a th:href="@{/prestador}">Inicio</a>
+      <a th:href="@{/servicioprestador}">Tu servicio</a>
+      <a th:href="@{/perfilprestador}" class="active">Tu Perfil</a>
+      <a th:href="@{/chatprestador}">Chat</a>
+      <a th:href="@{/gananciasprestador}">Tus ganancias</a>
+      <a th:href="@{/valoracionespres}">Tus valoraciones</a>
+      <a th:href="@{/agendapres}">Mi agenda</a>
+      <a th:href="@{/dashboardprestador}">Dashboard</a>
+
+      <!-- Cerrar sesión -->
+      <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Cerrar sesión
+      </a>
+
+      <!-- En Spring Boot NO se usa csrf así -->
+      <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;">
+      </form>
+
+    </nav>
+  </header>
+
+  <!-- ===== PERFIL ===== -->
+  <section class="perfil">
+    <h1 class="titulo-perfil">Tu Perfil</h1>
+
+    <div class="perfil-card">
+      <div class="foto-container">
+        <img th:src="@{/img/gratis-png-abrir-perfil-de-usuario-contenido-de-facebook-facebook-removebg-preview.png}" 
+             alt="Foto de perfil" 
+             class="foto-perfil">
+      </div>
+
+      <div class="info">
+        <h2>David Oliveros</h2>
+        <p><strong>Email:</strong> oliveros@gmail.com</p>
+        <p><strong>Teléfono:</strong> 3107945204</p>
+        <p><strong>Dirección:</strong> Dig 30J</p>
+        <p><strong>Rol:</strong> Prestador de servicios</p>
+
+        <button class="btn-editar">Editar perfil</button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

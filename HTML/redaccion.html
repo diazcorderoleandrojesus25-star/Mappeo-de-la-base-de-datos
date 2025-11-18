@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/stylesplomeria.css') }}">
+    <title>Redacción de contenido</title>
+</head>
+<body>
+   <header class="navbar">
+      <div class="logo">
+         <h4>JobXpress</h4>
+      </div>
+      <nav class="nav-links">
+         <a href="{{ route('cliente.home') }}">Inicio</a>
+         <a href="#servicios">Servicios</a>
+         <a href="{{ route('cliente.perfil') }}">Tu perfil</a>
+         <a href="{{ route('cliente.chat') }}">Chat</a>
+         <a href="{{ route('cliente.dashboard') }}">Dashboard</a>
+
+         <!-- Cerrar sesión -->
+         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+         </a>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+            @csrf
+         </form>
+      </nav>
+   </header>
+
+   <main class="contenedor">
+      <h1>Redacción de contenido</h1>
+      <p>
+         Profesionales especializados en redacción, corrección y creación de contenido para páginas web,
+         redes sociales, proyectos académicos y plataformas digitales.
+      </p>
+
+      <div class="tarjetas-usuarios">
+         @for ($i = 1; $i <= 9; $i++)
+            <div class="usuario">
+               <img src="{{ asset('images/prestador'.$i.'.jpg') }}" alt="Prestador {{ $i }}">
+               
+               <div class="info">
+                  <h3>Prestador {{ $i }}</h3>
+                  <p>
+                     @switch($i)
+                        @case(1)
+                           Creo artículos optimizados para blogs, páginas web y tiendas online, utilizando
+                           SEO y palabras clave estratégicas para mejorar tu posicionamiento.
+                           @break
+                        @case(2)
+                           Redacto y reviso trabajos universitarios, ensayos y documentos académicos, siguiendo normas
+                           APA, MLA e ICONTEC.
+                           @break
+                        @case(3)
+                           Desarrollador de contenido creativo para Instagram, Facebook y TikTok, adaptado a tu marca y estilo.
+                           @break
+                        @case(4)
+                           Especialista en redacción comercial: anuncios, correos, slogans y textos persuasivos para ventas.
+                           @break
+                        @case(5)
+                           Corrector profesional: mejoro ortografía, coherencia, estilo y claridad para que tu texto suene natural.
+                           @break
+                        @case(6)
+                           Redactor técnico en temas de tecnología, software, procesos industriales y documentación corporativa.
+                           @break
+                        @case(7)
+                           Redacto contenido confiable y accesible sobre nutrición, psicología, ejercicio y bienestar.
+                           @break
+                        @case(8)
+                           Escribo crónicas, reseñas y guías viajeras con descripciones atractivas y estilo narrativo.
+                           @break
+                        @case(9)
+                           Creo historias y contenido emocional para construir comunidad, marca personal y conexión con la audiencia.
+                           @break
+                     @endswitch
+                  </p>
+
+                  <a href="#" class="btn">Ver perfil</a>
+               </div>
+            </div>
+         @endfor
+      </div>
+   </main>
+</body>
+</html>

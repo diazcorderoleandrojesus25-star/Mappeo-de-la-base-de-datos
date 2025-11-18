@@ -1,0 +1,116 @@
+package templates;
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valoraciones - JobXpress</title>
+  <link rel="stylesheet" href="{{ asset('css/stylevaloraciones.css') }}">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">JobXpress</div>
+  <nav class="nav-links">
+    <a href="{{ url('prestador') }}">Inicio</a>
+    <a href="{{ url('servicioprestador') }}">Tu servicio</a>
+    <a href="{{ url('perfilprestador') }}">Tu Perfil</a>
+    <a href="{{ url('chatprestador') }}">Chat</a>
+    <a href="{{ url('gananciasprestador') }}">Tus ganancias</a>
+    <a href="{{ url('valoracionespres') }}" class="activo">Tus valoraciones</a>
+    <a href="{{ url('agendapres') }}">Mi agenda</a>
+    <a href="{{ url('dashboardprestador') }}">Dashboard</a>
+    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+      Cerrar sesión
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+      @csrf
+    </form>
+  </nav>
+</header>
+
+<main class="contenedor-principal">
+  <section class="tarjeta-valoraciones">
+    <h1>⭐ Tus Valoraciones</h1>
+    <p class="texto-promedio">Tienes una valoración promedio de:</p>
+
+    <div class="valoracion-promedio">
+      <span class="estrellas grandes">★★★★★</span>
+      <p class="promedio-num">4.8 / 5</p>
+    </div>
+
+    <p class="detalle">Has completado <strong>43 servicios</strong> y recibido <strong>32 reseñas</strong> de tus clientes.</p>
+
+    <div class="bloque-resenas">
+      <div class="fila">
+        <span class="nivel">5★</span>
+        <div class="barra"><div class="relleno" style="width: 80%;"></div></div>
+        <span class="cantidad">32</span>
+      </div>
+      <div class="fila">
+        <span class="nivel">4★</span>
+        <div class="barra"><div class="relleno" style="width: 10%;"></div></div>
+        <span class="cantidad">4</span>
+      </div>
+      <div class="fila">
+        <span class="nivel">3★</span>
+        <div class="barra"><div class="relleno" style="width: 6%;"></div></div>
+        <span class="cantidad">5</span>
+      </div>
+      <div class="fila">
+        <span class="nivel">2★</span>
+        <div class="barra"><div class="relleno" style="width: 4%;"></div></div>
+        <span class="cantidad">2</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN DE COMENTARIOS -->
+  <section class="seccion-comentarios">
+    <h2>💬 Últimos Comentarios</h2>
+    <div class="contenedor-comentarios">
+      <div class="comentario">
+        <div class="avatar"><span>A</span></div>
+        <div class="texto">
+          <div class="nombre-fecha">
+            <strong>Ana López</strong>
+            <span class="fecha">Hace 2 días</span>
+          </div>
+          <div class="estrellas">★★★★★</div>
+          <p>Excelente servicio, llegó puntual y resolvió el problema muy rápido. ¡Recomendado!</p>
+        </div>
+      </div>
+
+      <div class="comentario">
+        <div class="avatar"><span>J</span></div>
+        <div class="texto">
+          <div class="nombre-fecha">
+            <strong>Juan Pérez</strong>
+            <span class="fecha">Hace 5 días</span>
+          </div>
+          <div class="estrellas">★★★★☆</div>
+          <p>Todo bien, aunque podría mejorar la comunicación previa al servicio.</p>
+        </div>
+      </div>
+
+      <div class="comentario">
+        <div class="avatar"><span>M</span></div>
+        <div class="texto">
+          <div class="nombre-fecha">
+            <strong>Mariana Torres</strong>
+            <span class="fecha">Hace 1 semana</span>
+          </div>
+          <div class="estrellas">★★★★★</div>
+          <p>Increíble trabajo, quedó todo perfecto. Sin duda volveré a contratarte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  © 2025 JobXpress - Todos los derechos reservados
+</footer>
+</body>
+</html>
+

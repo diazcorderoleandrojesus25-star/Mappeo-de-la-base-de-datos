@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesplomeria.css">
+    <title>Salud</title>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+    <nav class="nav-links">
+        <a th:href="@{/inicio}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/perfil}">Tu perfil</a>
+        <a th:href="@{/chat}">Chat</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+
+        <!-- Cerrar sesión -->
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+    </nav>
+</header>
+
+<main class="contenedor">
+    <h1>Salud</h1>
+    <p>
+        Profesionales disponibles para brindarte atención médica, terapias, enfermería y cuidado especializado directamente en tu hogar.
+    </p>
+
+    <div class="tarjetas-usuarios">
+        <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+            <img th:src="@{'/images/prestador' + ${i} + '.jpg'}" th:alt="'Prestador ' + ${i}">
+            <div class="info">
+                <h3 th:text="'Prestador ' + ${i}"></h3>
+
+                <p th:switch="${i}">
+                    <span th:case="1">Cuido pacientes postoperatorios, administro medicamentos, realizo curaciones y seguimiento diario de signos vitales.</span>
+                    <span th:case="2">Cuido pacientes postoperatorios, administro medicamentos, realizo curaciones y seguimiento diario de signos vitales.</span>
+                    <span th:case="3">Terapias físicas en casa para lesiones musculares, posturas, movilidad y recuperación después de cirugías o accidentes.</span>
+                    <span th:case="4">Brindo acompañamiento, control de medicamentos, apoyo en higiene y actividades diarias para personas mayores.</span>
+                    <span th:case="5">Terapias individuales, manejo del estrés, ansiedad o depresión desde la comodidad de tu hogar o vía virtual.</span>
+                    <span th:case="6">Monitoreo y seguimiento de presión, glicemia, administración de insulina y educación al paciente.</span>
+                    <span th:case="7">Manejo de inhaloterapia, oxigenoterapia y cuidados para pacientes con asma, EPOC o recuperación de COVID-19.</span>
+                    <span th:case="8">Evaluación nutricional y planes alimenticios personalizados para bajar de peso, mejorar energía o tratar enfermedades.</span>
+                    <span th:case="9">Consulta médica básica, revisión de síntomas, prescripción de medicamentos y formulación en casa.</span>
+                </p>
+
+                <a th:href="@{/salud}" class="btn">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styledashcli.css}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h4>JobXpress</h4>
+        </div>
+        <nav class="nav-links">
+            <a th:href="@{/cliente/home}">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a th:href="@{/cliente/perfil}">Tu perfil</a>
+            <a th:href="@{/cliente/chat}">Chat</a>
+            <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+            <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Tu Dashboard</h1>
+                <p>Un resumen de tus estadísticas</p>
+            </div>
+        </header>
+
+        <!-- Cards de Resumen -->
+        <section class="summary-cards">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Servicios Totales</h3>
+                    <p class="number">12</p>
+                    <p class="trend positive">+8% <span>vs mes anterior</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Servicios Completados</h3>
+                    <p class="number">9</p>
+                    <p class="trend positive">+12% <span>vs mes anterior</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Servicios Cancelados</h3>
+                    <p class="number">3</p>
+                    <p class="trend negative">-5% <span>vs mes anterior</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenedor de Gráficos -->
+        <section class="charts-container">
+            <div class="chart-wrapper">
+                <h2>Servicios por categoría</h2>
+                <canvas id="usersChart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <h2>Frecuencia mensual</h2>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-wrapper wide">
+                <h2>Resumen anual</h2>
+                <canvas id="trendsChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script th:src="@{/dashboard/script.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobXpress - Prestador</title>
+    <link rel="stylesheet" href="{{ asset('css/prestador.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/font/lucide.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAV BAR -->
+    <header class="navbar">
+        <div class="logo">JobXpress</div>
+        
+        <nav class="nav-links">
+            <a href="{{ url('prestador') }}">Inicio</a>
+            <a href="{{ url('servicioprestador') }}">Tu servicio</a>
+            <a href="{{ url('perfilprestador') }}">Tu Perfil</a>
+            <a href="{{ url('chatprestador') }}">Chat</a>
+            <a href="{{ url('gananciasprestador') }}">Tus ganancias</a>
+            <a href="{{ url('valoracionespres') }}">Valoraciones</a>
+            <a href="{{ url('agendapres') }}">Agenda</a>
+            <a href="{{ url('dashboardprestador') }}">Dashboard</a>
+
+            <!-- Cerrar sesión -->
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                @csrf
+            </form>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="panel-prestador">
+
+        <!-- BIENVENIDA -->
+        <section class="bienvenida">
+            <h1>👋 Bienvenido, <span>Prestador</span></h1>
+            <p>
+                Administra tus servicios, revisa tus ganancias, controla tu agenda y gestiona tu actividad reciente desde este panel.
+            </p>
+        </section>
+
+        <!-- TARJETAS PRINCIPALES -->
+        <section class="tarjetas-panel">
+            <div class="tarjeta">
+                <i class="lucide lucide-wallet"></i>
+                <h3>Ganancias</h3>
+                <p>$1,250,000 COP</p>
+                <a href="{{ url('gananciasprestador') }}" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <i class="lucide lucide-wrench"></i>
+                <h3>Servicios activos</h3>
+                <p>4 servicios en curso</p>
+                <a href="{{ url('servicioprestador') }}" class="boton">Ver detalles</a>
+            </div>
+
+            <div class="tarjeta">
+                <i class="lucide lucide-star"></i>
+                <h3>Valoraciones</h3>
+                <p>⭐ 4.8 / 5</p>
+                <a href="{{ url('valoracionespres') }}" class="boton">Ver reseñas</a>
+            </div>
+
+            <div class="tarjeta">
+                <i class="lucide lucide-calendar"></i>
+                <h3>Próximas citas</h3>
+                <p>3 programadas</p>
+                <a href="{{ url('agendapres') }}" class="boton">Abrir agenda</a>
+            </div>
+        </section>
+
+        <!-- ACTIVIDAD RECIENTE -->
+        <section class="actividad-reciente">
+            <h2>📅 Actividad reciente</h2>
+            <ul>
+                <li>✅ Servicio completado: Plomería en Calle 10 #15.</li>
+                <li>💬 Nuevo mensaje de cliente: “Gracias por tu ayuda”.</li>
+                <li>⭐ Nueva valoración: 5 estrellas.</li>
+                <li>🕒 Próxima cita: 25 Oct, 2:00 PM.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 JobXpress | Conectando profesionales con clientes</p>
+    </footer>
+
+</body>
+</html>

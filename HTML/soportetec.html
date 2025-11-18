@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/stylesplomeria.css}" rel="stylesheet">
+    <title>Soporte Técnico</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+
+    <nav class="nav-links">
+        <a th:href="@{/cliente/home}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/cliente/perfil}">Tu perfil</a>
+        <a th:href="@{/cliente/chat}">Chat</a>
+        <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+
+        <form id="logout-form" th:action="@{/logout}" method="post" style="display:none;">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        </form>
+    </nav>
+</header>
+
+<!-- Contenido principal -->
+<main class="contenedor">
+
+    <h1>Soporte Técnico</h1>
+    <p>Profesionales disponibles para ayudarte con computadoras, redes, dispositivos y soluciones tecnológicas a domicilio o de forma remota.</p>
+
+    <div class="tarjetas-usuarios">
+
+        <!-- Equivalente al foreach(range(1,9) as $i) -->
+        <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+
+            <!-- Imagen -->
+            <img th:src="@{'/img/prestador' + ${i} + '.jpg'}" th:alt="'Imagen prestador ' + ${i}">
+
+            <div class="info">
+
+                <h3 th:text="'Prestador ' + ${i}"></h3>
+
+                <!-- Descripción según número usando Thymeleaf if/else -->
+                <p>
+                    <span th:if="${i==1}">
+                        Técnico con 6 años de experiencia en mantenimiento preventivo y correctivo.
+                        Optimizo el rendimiento de tu equipo sin perder información.
+                    </span>
+                    <span th:if="${i==2}">
+                        Especialista en instalación y optimización de redes domésticas y empresariales.
+                        Diagnóstico rápido y soluciones eficientes.
+                    </span>
+                    <span th:if="${i==3}">
+                        Atiendo fallos de software, lentitud, virus o reinstalación del sistema.
+                        Servicio rápido por conexión remota o presencial.
+                    </span>
+                    <span th:if="${i==4}">
+                        Recupero archivos eliminados o inaccesibles desde discos duros, USB y memorias.
+                        Configuración de copias automáticas en la nube.
+                    </span>
+                    <span th:if="${i==5}">
+                        Configuro e instalo impresoras, multifuncionales y drivers.
+                        Solución de errores de conexión o impresión.
+                    </span>
+                    <span th:if="${i==6}">
+                        Asistencia personalizada para pequeñas empresas: redes, software, periféricos y soporte preventivo.
+                    </span>
+                    <span th:if="${i==7}">
+                        Cambio de pantallas, teclados, baterías y discos en laptops.
+                        Diagnóstico gratuito y repuestos garantizados.
+                    </span>
+                    <span th:if="${i==8}">
+                        Configuro antivirus, bloqueo de contenido y sistemas de protección para el uso seguro de internet en el hogar.
+                    </span>
+                    <span th:if="${i==9}">
+                        Instalo programas profesionales: diseño, contabilidad, arquitectura o educación.
+                        Acompañamiento en el uso inicial.
+                    </span>
+                </p>
+
+                <a th:href="@{/soportetec}">
+                    <button>Ver perfil</button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

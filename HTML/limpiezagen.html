@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylesplomeria.css}">
+    <title>Limpieza General</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <h4>JobXpress</h4>
+        </div>
+
+        <nav class="nav-links">
+            <a th:href="@{/cliente/home}">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a th:href="@{/cliente/perfil}">Tu perfil</a>
+            <a th:href="@{/cliente/chat}">Chat</a>
+            <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+
+            <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="contenedor">
+        <h1>Limpieza General</h1>
+        <p>Profesionales disponibles para ayudarte con la limpieza general de tu hogar, oficina o negocio.</p>
+
+        <div class="tarjetas-usuarios">
+
+            <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+                <img th:src="@{'/img/prestador' + ${i} + '.jpg'}" th:alt="'Imagen prestador ' + ${i}">
+                
+                <div class="info">
+                    <h3>Prestador <span th:text="${i}"></span></h3>
+
+                    <p th:switch="${i}">
+                        <span th:case="1">Realizo limpieza completa de casas y apartamentos, incluyendo pisos, baños, cocinas y habitaciones...</span>
+                        <span th:case="2">Ofrezco limpieza profesional de oficinas, escritorios, equipos y espacios comunes...</span>
+                        <span th:case="3">Experta en limpieza de baños y cocinas con enfoque en desinfección profunda...</span>
+                        <span th:case="4">Me especializo en limpieza posobra o posmudanza...</span>
+                        <span th:case="5">Brindo limpieza detallada de muebles, colchones, tapicerías y alfombras...</span>
+                        <span th:case="6">Realizo limpieza ecológica con productos biodegradables y no tóxicos...</span>
+                        <span th:case="7">Atiendo servicios de limpieza por horas o por días según tu necesidad...</span>
+                        <span th:case="8">Ofrezco limpieza de vidrios, ventanas, espejos y superficies delicadas...</span>
+                        <span th:case="9">Me dedico a la limpieza general de espacios residenciales y comerciales...</span>
+                    </p>
+
+                    <p th:switch="${i}">
+                        <span th:case="1">🕒 Lunes a viernes, 10:00 a.m. – 6:00 p.m.<br>📅 Disponible para citas programadas.</span>
+                        <span th:case="2">🕒 Lunes a sábado, 7:00 a.m. – 5:00 p.m.<br>📅 Atención el mismo día si reservas antes de las 12 p.m.</span>
+                        <span th:case="3">🕒 Lunes a viernes, 8:00 a.m. – 6:00 p.m.<br>📅 Requiere agendamiento con 1 día de anticipación.</span>
+                        <span th:case="4">🕒 Disponible 24/7<br>📅 Respuesta en menos de 1 hora para emergencias.</span>
+                        <span th:case="5">🕒 Lunes a sábado, 9:00 a.m. – 4:00 p.m.<br>📅 Turnos programados en la mañana.</span>
+                        <span th:case="6">🕒 Lunes a viernes, 8:00 a.m. – 5:30 p.m.<br>📅 Agenda semanal flexible.</span>
+                        <span th:case="7">🕒 Lunes a sábado, 7:30 a.m. – 6:00 p.m.<br>📅 Atención programada o visitas según zona.</span>
+                        <span th:case="8">🕒 Martes a sábado, 9:00 a.m. – 5:00 p.m.<br>📅 Requiere agendar con 24h.</span>
+                        <span th:case="9">🕒 Lunes a domingo, 6:00 a.m. – 10:00 p.m.<br>📅 Atención inmediata.</span>
+                    </p>
+
+                    <a th:href="@{/cliente/limpiezageneral}">
+                        <button>Ver perfil</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

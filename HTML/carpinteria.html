@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylesplomeria.css}">
+    <title>Carpintería</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <h4>JobXpress</h4>
+        </div>
+        <nav class="nav-links">
+            <a th:href="@{/cliente/home}">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a th:href="@{/cliente/perfil}">Tu perfil</a>
+            <a th:href="@{/cliente/chat}">Chat</a>
+            <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+            <form id="logout-form" th:action="@{/logout}" method="post" style="display:none;"></form>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1>Carpintería</h1>
+        <p>Profesionales disponibles para ayudarte con la fabricación, instalación y reparación de muebles, puertas,
+            closets y todo tipo de soluciones en madera para tu hogar o negocio.</p>
+
+        <div class="tarjetas-usuarios">
+            <div th:each="i : ${#numbers.sequence(1,9)}" class="usuario">
+                <img th:src="@{'/img/prestador' + ${i} + '.jpg'}" th:alt="'Imagen prestador ' + ${i}">
+                <div class="info">
+                    <h3 th:text="'Prestador ' + ${i}"></h3>
+
+                    <p th:switch="${i}">
+                        <span th:case="1">Me especializo en crear muebles únicos, hechos a la medida...</span>
+                        <span th:case="2">Llevo años instalando puertas y ventanas de todo tipo...</span>
+                        <span th:case="3">Diseño e instalo cocinas funcionales y modernas...</span>
+                        <span th:case="4">Me apasiona devolverle la vida a los muebles antiguos...</span>
+                        <span th:case="5">Hago closets y vestieres a medida, con diseños personalizados...</span>
+                        <span th:case="6">Instalo y doy mantenimiento a pisos de madera natural o laminada...</span>
+                        <span th:case="7">Construyo pérgolas, techos y estructuras en madera para exteriores...</span>
+                        <span th:case="8">Trabajo muebles con estilo rústico y decorativo para el hogar...</span>
+                        <span th:case="9">Reparo puertas, bisagras, muebles sueltos y daños pequeños...</span>
+                    </p>
+
+                    <p th:switch="${i}">
+                        <span th:case="1">🕒 Lunes a domingo, 6:00 a.m – 10:00 p.m. | 📅 Atención inmediata.</span>
+                        <span th:case="2">🕒 Martes a sábado, 9:00 a.m – 5:00 p.m. | 📅 Se agenda con 24 horas.</span>
+                        <span th:case="3">🕒 Lunes a sábado, 7:30 a.m – 6:00 p.m. | 📅 Programación según zona.</span>
+                        <span th:case="4">🕒 Lunes a viernes, 8:00 a.m – 5:30 p.m. | 📅 Agenda flexible.</span>
+                        <span th:case="5">🕒 Lunes a sábado, 9:00 a.m – 4:00 p.m. | 📅 Turnos en la mañana.</span>
+                        <span th:case="6">🕒 Disponible 24/7 | 📅 Emergencias en menos de 1 hora.</span>
+                        <span th:case="7">🕒 Lunes a viernes, 8:00 a.m – 6:00 p.m. | 📅 Agendamiento anticipado.</span>
+                        <span th:case="8">🕒 Lunes a sábado, 7:00 a.m – 5:00 p.m. | 📅 Mismo día si reservas antes de 12
+                            p.m.</span>
+                        <span th:case="9">🕒 Lunes a viernes, 10:00 a.m – 6:00 p.m. | 📅 Citas programadas.</span>
+                    </p>
+
+                    <a th:href="@{/carpinteria}">
+                        <button>Ver perfil</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

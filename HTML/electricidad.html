@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/stylesplomeria.css}">
+    <title>Electricidad</title>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+    <nav class="nav-links">
+        <a th:href="@{/cliente/home}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/cliente/perfil}">Tu perfil</a>
+        <a th:href="@{/cliente/chat}">Chat</a>
+        <a th:href="@{/cliente/dashboard}">Dashboard</a>
+
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+    </nav>
+</header>
+
+<main class="contenedor">
+    <h1>Electricidad</h1>
+    <p>Profesionales disponibles para realizar instalaciones, reparaciones eléctricas y soluciones seguras en tu hogar o negocio.</p>
+
+    <div class="tarjetas-usuarios">
+        <div class="usuario" th:each="i : ${#numbers.sequence(1,9)}">
+            <img th:src="@{'/img/prestador' + ${i} + '.jpg'}" alt="img prestadores">
+            <div class="info">
+                <h3>Prestador <span th:text="${i}"></span></h3>
+
+                <p th:switch="${i}">
+                    <span th:case="1">Realizo cableado completo, cambios de tomas, breakers y tableros eléctricos. Trabajo seguro, limpio y con cumplimiento de normas técnicas.</span>
+                    <span th:case="2">Soluciono problemas en instalaciones internas, conexiones inestables o apagones parciales. Diagnóstico rápido y atención personalizada.</span>
+                    <span th:case="3">Asesoría e instalación de luminarias LED para hogares y oficinas. Optimizamos tu consumo eléctrico con soluciones modernas y eficientes.</span>
+                    <span th:case="4">Montaje profesional de lámparas decorativas, apliques, ventiladores de techo y sensores de movimiento. Trabajo estético y seguro.</span>
+                    <span th:case="5">Instalo tomas de alto voltaje, protecciones térmicas y enchufes especiales para electrodomésticos grandes. Ideal para remodelaciones o mudanzas.</span>
+                    <span th:case="6">Experta en diseño e implementación de redes eléctricas para negocios, vitrinas, iluminación de exhibición y puntos de venta.</span>
+                    <span th:case="7">Disponible día y noche para resolver apagones, fusibles quemados o cortocircuitos. Respuesta rápida con herramientas profesionales.</span>
+                    <span th:case="8">Instalación de sistemas de puesta a tierra para equipos sensibles, computadoras, routers y protección con tomacorrientes especiales.</span>
+                    <span th:case="9">Implemento interruptores inteligentes, temporizadores y sensores para control de luces y electrodomésticos desde tu celular.</span>
+                </p>
+
+                <p th:switch="${i}">
+                    <span th:case="1">🕒 Lunes a sábado, 7:00 a.m. – 5:00 p.m.<br>📅 Atención el mismo día si reservas antes de las 12 p.m.</span>
+                    <span th:case="2">🕒 Lunes a viernes, 8:00 a.m. – 6:00 p.m.<br>📅 Requiere agendamiento con al menos 1 día de anticipación.</span>
+                    <span th:case="3">🕒 Disponible 24/7<br>📅 Respuesta en menos de 1 hora para emergencias</span>
+                    <span th:case="4">🕒 Lunes a sábado, 9:00 a.m. – 4:00 p.m.<br>📅 Turnos programados en la mañana.</span>
+                    <span th:case="5">🕒 Lunes a viernes, 8:00 a.m. – 5:30 p.m.<br>📅 Agenda semanal flexible.</span>
+                    <span th:case="6">🕒 Lunes a sábado, 7:30 a.m. – 6:00 p.m.<br>📅 Atención programada o visitas el mismo día según zona.</span>
+                    <span th:case="7">🕒 Martes a sábado, 9:00 a.m. – 5:00 p.m.<br>📅 Se debe agendar con al menos 24 horas.</span>
+                    <span th:case="8">🕒 Lunes a domingo, 6:00 a.m. – 10:00 p.m.<br>📅 Atención inmediata para destaponamientos.</span>
+                    <span th:case="9">🕒 Lunes a viernes, 10:00 a.m. – 6:00 p.m.<br>📅 Disponible para citas programadas.</span>
+                </p>
+
+                <a th:href="@{/electricidad}">
+                    <button>Ver perfil</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

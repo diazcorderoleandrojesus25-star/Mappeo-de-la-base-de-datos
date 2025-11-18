@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu servicio - JobXpress</title>
+    <link rel="stylesheet" th:href="@{/css/styleservicioprestador.css}">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/font/lucide.css" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">JobXpress</div>
+        <nav class="nav-links">
+            <a th:href="@{/prestador}">Inicio</a>
+            <a th:href="@{/servicioprestador}" class="activo">Tu servicio</a>
+            <a th:href="@{/perfilprestador}">Tu Perfil</a>
+            <a th:href="@{/chatprestador}">Chat</a>
+            <a th:href="@{/gananciasprestador}">Tus ganancias</a>
+            <a th:href="@{/valoracionespres}">Tus valoraciones</a>
+            <a th:href="@{/agendapres}">Mi agenda</a>
+            <a th:href="@{/dashboardprestador}">Dashboard</a>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
+            <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <main class="contenedor-principal">
+        <section class="intro">
+            <h1><i class="lucide lucide-briefcase"></i> Tu Servicio</h1>
+            <p>
+                Administra la información de tu servicio y mantén tus certificaciones al día para seguir creciendo dentro de JobXpress.
+            </p>
+        </section>
+
+        <!-- CONTENEDOR DE TARJETAS -->
+        <section class="contenedor-servicios">
+            <div class="tarjeta-servicio animada">
+                <div class="icono"><i class="lucide lucide-zap"></i></div>
+                <h2>Detalles del Servicio</h2>
+                <p>
+                    Electricista especializado en instalaciones residenciales y mantenimiento de redes eléctricas.
+                    Experiencia con sistemas modernos, atención a emergencias y diagnósticos técnicos avanzados.
+                </p>
+                <a href="#" class="boton">Editar información</a>
+            </div>
+
+            <div class="tarjeta-servicio animada">
+                <div class="icono"><i class="lucide lucide-award"></i></div>
+                <h2>Validación de Habilidades</h2>
+                <p>
+                    Certificado en electricidad industrial y domiciliaria. Documentación validada por el equipo JobXpress.
+                    Mantén tus certificados actualizados para mejorar tu visibilidad en la plataforma.
+                </p>
+                <a href="#" class="boton">Actualizar certificados</a>
+            </div>
+
+            <div class="tarjeta-servicio animada">
+                <div class="icono"><i class="lucide lucide-target"></i></div>
+                <h2>Desempeño y Reputación</h2>
+                <p>
+                    Valoración promedio: <strong>4.8/5</strong> ⭐  
+                    Los clientes destacan tu puntualidad y calidad de trabajo. ¡Sigue así!
+                </p>
+                <a th:href="@{/valoracionespres}" class="boton">Ver valoraciones</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

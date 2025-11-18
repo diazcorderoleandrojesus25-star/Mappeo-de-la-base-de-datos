@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - JobXpress</title>
+    <!-- RUTA DE CSS PARA SPRING BOOT -->
+    <link rel="stylesheet" href="/css/styledashprestador.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">JobXpress</div>
+        <nav class="nav-links">
+            <a href="/prestador">Inicio</a>
+            <a href="/servicioprestador">Tu servicio</a>
+            <a href="/perfilprestador">Tu Perfil</a>
+            <a href="/chatprestador">Chat</a>
+            <a href="/gananciasprestador">Tus ganancias</a>
+            <a href="/valoracionespres">Tus valoraciones</a>
+            <a href="/agendapres">Mi agenda</a>
+            <a href="/dashboardprestador" class="activo">Dashboard</a>
+            <a href="/logout">Cerrar sesión</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+
+        <!-- 🌟 BIENVENIDA -->
+        <section class="bienvenida">
+            <h1>¡Hola, Prestador!</h1>
+            <p>Bienvenido de nuevo a tu panel de control. Aquí puedes ver tus métricas y actividad reciente.</p>
+        </section>
+
+        <!-- 📊 MÉTRICAS PRINCIPALES -->
+        <section class="resumen-grid">
+            <div class="resumen-card">
+                <h3>Servicios activos</h3>
+                <p class="dato">3 servicios publicados</p>
+            </div>
+
+            <div class="resumen-card">
+                <h3>Ganancias (octubre)</h3>
+                <p class="dato">$450.000 COP</p>
+            </div>
+
+            <div class="resumen-card">
+                <h3>Reseñas promedio</h3>
+                <p class="dato">4.8 ★</p>
+            </div>
+
+            <div class="resumen-card">
+                <h3>Próximas citas</h3>
+                <p class="dato">2 agendadas esta semana</p>
+            </div>
+        </section>
+
+        <!-- 📈 GRÁFICOS -->
+        <section class="graficos-grid">
+
+            <div class="grafico-card">
+                <h2>Ganancias semanales</h2>
+                <div class="bar-chart">
+                    <div class="bar" style="--valor: 80%"><span>Lun</span></div>
+                    <div class="bar" style="--valor: 65%"><span>Mar</span></div>
+                    <div class="bar" style="--valor: 45%"><span>Mié</span></div>
+                    <div class="bar" style="--valor: 90%"><span>Jue</span></div>
+                    <div class="bar" style="--valor: 60%"><span>Vie</span></div>
+                </div>
+            </div>
+
+            <div class="grafico-card">
+                <h2>Resumen de reseñas</h2>
+                <div class="resena-chart">
+                    <div class="resena-bar"><span>5★</span>
+                        <div class="barra" style="width: 95%;"></div>
+                    </div>
+                    <div class="resena-bar"><span>4★</span>
+                        <div class="barra" style="width: 70%;"></div>
+                    </div>
+                    <div class="resena-bar"><span>3★</span>
+                        <div class="barra" style="width: 40%;"></div>
+                    </div>
+                    <div class="resena-bar"><span>2★</span>
+                        <div class="barra" style="width: 20%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💬 RESEÑAS RECIENTES -->
+        <section class="comentarios-recientes">
+            <h2>Últimas reseñas</h2>
+            <div class="comentario">
+                <p><strong>María G.</strong> — “Excelente servicio, muy puntual y amable.”</p>
+                <span>★★★★★</span>
+            </div>
+            <div class="comentario">
+                <p><strong>Juan P.</strong> — “Todo perfecto, volveré a contratar.”</p>
+                <span>★★★★☆</span>
+            </div>
+        </section>
+
+        <!-- 🗓️ PRÓXIMAS CITAS -->
+        <section class="agenda-proxima">
+            <h2>Próximas citas</h2>
+            <ul class="lista-citas">
+                <li><strong>5 JUL</strong> — reparacion de electricidad (10:00 AM)</li>
+                <li><strong>11 JUL</strong> — restauracion de electricidad (2:00 PM)</li>
+            </ul>
+        </section>
+
+        <!-- 💡 CONSEJOS -->
+        <section class="notificaciones">
+            <h2>Consejos de mejora</h2>
+            <ul>
+                <li>Actualiza tu perfil para recibir más solicitudes.</li>
+                <li>Responde rápido los mensajes para mejorar tu reputación.</li>
+                <li>Ofrece descuentos en días con baja demanda.</li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

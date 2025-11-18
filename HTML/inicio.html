@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cliente.css">
+    <title>JobXpress</title>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <h4>JobXpress</h4>
+    </div>
+
+    <nav class="nav-links">
+        <a th:href="@{/inicio}">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a th:href="@{/perfil}">Tu perfil</a>
+        <a th:href="@{/chat}">Chat</a>
+        <a th:href="@{/dashboard}">Dashboard</a>
+
+        <!-- Cerrar sesión -->
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+    </nav>
+</header>
+
+<main>
+    <section id="inicio">
+        <h1>Servicios que ofrecemos</h1>
+        <p>
+            En JobXpress ofrecemos una amplia gama de servicios diseñados para cubrir las necesidades cotidianas de nuestros usuarios...
+        </p>
+    </section>
+
+    <section id="servicios">
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <img src="/img/plomeria.png" alt="plomeria">
+                <a th:href="@{/plomeria}"><h3>Plomería</h3></a>
+                <p>Soluciones rápidas para fugas, instalaciones y reparaciones en el hogar.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/electricidad.png" alt="electricidad">
+                <a th:href="@{/electricidad}"><h3>Electricidad</h3></a>
+                <p>Instalaciones eléctricas, arreglos y mantenimiento con seguridad garantizada.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/carpinteria.png" alt="carpintería">
+                <a th:href="@{/carpinteria}"><h3>Carpintería</h3></a>
+                <p>Reparación y fabricación de muebles, puertas, closets y más.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/limpieza.png" alt="limpieza">
+                <a th:href="@{/limpiezagen}"><h3>Limpieza general</h3></a>
+                <p>Servicio de limpieza residencial o de oficinas, por horas o integral.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/soporte.png" alt="soporte tecnico">
+                <a th:href="@{/soportetec}"><h3>Soporte técnico</h3></a>
+                <p>Revisión y solución de problemas en computadores, celulares y redes.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/instalacion.png" alt="instalación">
+                <a th:href="@{/instalacionnequi}"><h3>Instalación de equipos</h3></a>
+                <p>Televisores, routers, aires acondicionados, cámaras y más.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/fisioterapia.png" alt="fisioterapia">
+                <a th:href="@{/fisioterapia}"><h3>Fisioterapia</h3></a>
+                <p>Sesiones de rehabilitación física y terapias personalizadas a domicilio.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/salud.png" alt="salud">
+                <a th:href="@{/salud}"><h3>Salud</h3></a>
+                <p>Profesionales de la salud que brindan atención médica básica o especializada.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/asesorias.png" alt="asesorías">
+                <a th:href="@{/asesorias}"><h3>Tutores y asesorías</h3></a>
+                <p>Clases particulares, ayuda escolar y orientación académica en diversas materias.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/cuidador.png" alt="cuidador">
+                <a th:href="@{/cuidaranimales}"><h3>Cuidadores de animales</h3></a>
+                <p>Cuidado, paseo y atención para mascotas con cariño y responsabilidad.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/redaccion.png" alt="redaccion">
+                <a th:href="@{/redaccion}"><h3>Redacción de contenido</h3></a>
+                <p>Textos para blogs, productos, páginas web o redes con enfoque profesional.</p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="/img/marketing.png" alt="marketing">
+                <a th:href="@{/marketing}"><h3>Marketing digital</h3></a>
+                <p>Estrategias de publicidad, gestión de redes sociales y posicionamiento web.</p>
+            </div>
+
+        </div>
+    </section>
+</main>
+</body>
+</html>
+>

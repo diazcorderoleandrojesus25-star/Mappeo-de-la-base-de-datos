@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - JobXpress</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">JobXpress</div>
+    <nav class="nav-links">
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/usuarios}">Usuarios</a>
+        <a th:href="@{/roles}">Roles</a>
+        <a th:href="@{/servicios}">Servicios</a>
+        <a th:href="@{/categorias}">Categorías</a>
+        <a th:href="@{/contrataciones}">Contrataciones</a>
+        <a th:href="@{/calificaciones}">Calificaciones</a>
+        <a th:href="@{/pagos}">Pagos</a>
+        <a th:href="@{/metodospago}">Métodos de Pago</a>
+
+        <!-- Logout eliminado temporalmente -->
+    </nav>
+</header>
+
+<!-- Main -->
+<main class="admin-dashboard">
+    <h1>Panel de Administración</h1>
+
+    <!-- Tarjetas -->
+    <section class="tarjetas">
+        <div class="tarjeta">
+            <h3>Usuarios registrados</h3>
+            <p>856</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Prestadores activos</h3>
+            <p>312</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Servicios publicados</h3>
+            <p>1.240</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Ganancias totales</h3>
+            <p>$12.300.000 COP</p>
+        </div>
+    </section>
+
+    <!-- Usuarios por rol -->
+    <section class="usuarios-por-rol">
+        <h3>Usuarios por rol</h3>
+
+        <div class="barra-rol">
+            <span>Clientes</span>
+            <div class="barra" style="width: 90%"></div>
+        </div>
+
+        <div class="barra-rol">
+            <span>Prestadores</span>
+            <div class="barra" style="width: 70%"></div>
+        </div>
+
+        <div class="barra-rol">
+            <span>Admins</span>
+            <div class="barra" style="width: 20%"></div>
+        </div>
+    </section>
+
+    <!-- Servicios por semana -->
+    <section class="servicios-semana">
+        <h3>Servicios contratados por semana</h3>
+
+        <div class="bar-chart">
+            <div class="bar" style="--valor: 60%"><span>Lun</span></div>
+            <div class="bar" style="--valor: 40%"><span>Mar</span></div>
+            <div class="bar" style="--valor: 80%"><span>Mié</span></div>
+            <div class="bar" style="--valor: 50%"><span>Jue</span></div>
+            <div class="bar" style="--valor: 30%"><span>Vie</span></div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
