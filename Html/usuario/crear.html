@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Crear Usuario</h2>
+
+    <form th:action="@{/admin/usuarios/crear}" th:object="${usuario}" method="post">
+
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input class="form-control" th:field="*{nombre}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Apellido</label>
+            <input class="form-control" th:field="*{apellido}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" th:field="*{email}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Teléfono</label>
+            <input class="form-control" th:field="*{telefono}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Dirección</label>
+            <input class="form-control" th:field="*{direccion}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" th:field="*{contrasena}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Rol</label>
+            <select class="form-select" th:field="*{rol.idRol}">
+                <option th:each="r : ${roles}"
+                        th:value="${r.idRol}"
+                        th:text="${r.rol}">
+                </option>
+            </select>
+        </div>
+
+        <button class="btn btn-success">Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/admin/usuarios/lista}">Cancelar</a>
+
+    </form>
+
+</div>
+
+</body>
+</html>
