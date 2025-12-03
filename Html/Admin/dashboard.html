@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - JobXpress</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <!-- 🔥 BLOQUEO TOTAL DE CACHÉ -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- 🔥 PREVENCIÓN DE BFCACHE Y BACK BUTTON -->
+    <script>
+        // Si la página vuelve desde el historial → redirige
+        if (performance.navigation.type === 2) {
+            window.location.replace("/login");
+        }
+
+        // Evita cargar desde bfcache (Chrome, Firefox)
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                window.location.replace("/login");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">JobXpress</div>
+
+    <nav class="nav-links">
+
+        <a th:href="@{/admin/usuarios/lista}">Gestión de Usuarios</a>
+        <a th:href="@{/admin/roles/lista}">Gestión de Roles</a>
+        <a th:href="@{/admin/servicios/lista}">Gestion de Servicios</a>
+        <a th:href="@{/admin/categorias/lista}">Gestión de Categorías</a>
+        <a th:href="@{/admin/metodos_pago/lista}">Gestión de Métodos de Pago</a>
+
+        <!-- Logout -->
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
+        <form id="logout-form" th:action="@{/logout}" method="POST" style="display:none;"></form>
+
+    </nav>
+</header>
+
+<!-- Main -->
+<main class="admin-dashboard">
+    <h1>Panel de Administración</h1>
+
+    <!-- Tarjetas -->
+    <section class="tarjetas">
+        <div class="tarjeta">
+            <h3>Usuarios registrados</h3>
+            <p>856</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Prestadores activos</h3>
+            <p>312</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Servicios publicados</h3>
+            <p>1.240</p>
+        </div>
+        <div class="tarjeta">
+            <h3>Ganancias totales</h3>
+            <p>$12.300.000 COP</p>
+        </div>
+    </section>
+
+    <!-- Usuarios por rol -->
+    <section class="usuarios-por-rol">
+        <h3>Usuarios por rol</h3>
+
+        <div class="barra-rol">
+            <span>Clientes</span>
+            <div class="barra" style="width: 90%"></div>
+        </div>
+
+        <div class="barra-rol">
+            <span>Prestadores</span>
+            <div class="barra" style="width: 70%"></div>
+        </div>
+
+        <div class="barra-rol">
+            <span>Admins</span>
+            <div class="barra" style="width: 20%"></div>
+        </div>
+    </section>
+
+    <!-- Servicios por semana -->
+    <section class="servicios-semana">
+        <h3>Servicios contratados por semana</h3>
+
+        <div class="bar-chart">
+            <div class="bar" style="--valor: 60%"><span>Lun</span></div>
+            <div class="bar" style="--valor: 40%"><span>Mar</span></div>
+            <div class="bar" style="--valor: 80%"><span>Mié</span></div>
+            <div class="bar" style="--valor: 50%"><span>Jue</span></div>
+            <div class="bar" style="--valor: 30%"><span>Vie</span></div>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
