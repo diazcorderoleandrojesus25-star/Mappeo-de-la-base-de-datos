@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Método de Pago</title>
+</head>
+<body>
+
+<h1>Editar Método de Pago</h1>
+
+<form th:action="@{/admin/metodos_pago/editar/{id}(id=${metodo.id})}"
+      th:object="${metodo}" method="post">
+
+    <label>Forma de Pago:</label>
+    <input type="text" th:field="*{formaPago}" required>
+
+    <button type="submit">Actualizar</button>
+</form>
+
+<a href="/admin/metodos_pago/lista">⬅ Volver</a>
+
+</body>
+</html>

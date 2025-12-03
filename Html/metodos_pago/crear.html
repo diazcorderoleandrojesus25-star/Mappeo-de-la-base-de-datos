@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Método de Pago</title>
+</head>
+<body>
+
+<h1>Crear Método de Pago</h1>
+
+<form th:action="@{/admin/metodos_pago/crear}" th:object="${metodo}" method="post">
+
+    <label>Forma de Pago:</label>
+    <input type="text" th:field="*{formaPago}" required>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="/admin/metodos_pago/lista">⬅ Volver</a>
+
+</body>
+</html>
